@@ -1,0 +1,120 @@
+/* CSS variables and premium defaults */
+:root {
+    --bg-dark: #0B0C10;
+    --card-bg-glass: rgba(21, 23, 33, 0.5);
+    --border-glass: rgba(255, 255, 255, 0.06);
+    --purple-glow: rgba(168, 85, 247, 0.15);
+    --indigo-glow: rgba(99, 102, 241, 0.15);
+}
+
+/* Glassmorphism styling */
+.glass-container {
+    background: var(--card-bg-glass);
+    backdrop-filter: blur(16px) saturate(130%);
+    border-color: var(--border-glass);
+}
+
+.glass-card {
+    background: rgba(25, 28, 41, 0.45);
+    border: 1px solid var(--border-glass);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+}
+
+.glass-card:hover {
+    transform: translateY(-4px) scale(1.015);
+    border-color: rgba(99, 102, 241, 0.25);
+    background: rgba(30, 34, 49, 0.55);
+    box-shadow: 
+        0 12px 40px rgba(0, 0, 0, 0.35),
+        0 0 20px var(--indigo-glow);
+}
+
+/* Category Button active styles */
+.category-btn {
+    color: rgba(255, 255, 255, 0.5);
+    border: 1px solid transparent;
+    background: transparent;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.category-btn:hover {
+    color: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.category-btn.active {
+    color: #ffffff;
+    background: rgba(99, 102, 241, 0.1);
+    border-color: rgba(99, 102, 241, 0.2);
+    box-shadow: 0 0 15px rgba(99, 102, 241, 0.1);
+}
+
+/* Premium Code Block styling inside cards */
+.code-container {
+    position: relative;
+    background: rgba(11, 12, 16, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    font-family: 'Fira Code', 'Courier New', Courier, monospace;
+}
+
+/* Custom Webkit scrollbar for elegant UI */
+.custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: var(--bg-dark);
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(99, 102, 241, 0.2);
+    border-radius: 10px;
+    transition: background 0.3s;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgba(99, 102, 241, 0.45);
+}
+
+/* Toast notifications styling & keyframes */
+.toast-alert {
+    background: rgba(18, 19, 28, 0.9);
+    border: 1px solid rgba(99, 102, 241, 0.25);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), 0 0 15px rgba(99, 102, 241, 0.15);
+    animation: toast-slide-in 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.toast-alert.hide {
+    animation: toast-slide-out 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes toast-slide-in {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes toast-slide-out {
+    from {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(20px) scale(0.9);
+    }
+}
+
+/* Text selections */
+::selection {
+    background: rgba(168, 85, 247, 0.35);
+    color: #ffffff;
+}
